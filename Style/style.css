@@ -20,6 +20,7 @@ header {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    position: sticky;
 }
 
 header h1 {
@@ -35,26 +36,47 @@ header p {
 nav {
     background: #444;
     padding: 0.5rem 0;
+    /* position: fixed; */
 }
 
-nav ul {
+.logo{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.logo img{
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-left: 20px;
+}
+
+.nav{
+    display: flex;
+    margin-left: 150px;
+}
+
+.nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-nav ul li {
+.nav ul li {
     margin: 0 1rem;
 }
 
-nav ul li a {
+
+.nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1rem;
 }
 
-nav ul li a:hover {
-    color: #f4f4f4;
+.nav ul li a:hover {
+    color: #1ed88e;
     text-decoration: underline;
 }
 
@@ -76,6 +98,16 @@ nav ul li a:hover {
 }
 
 /* Portfolio Section */
+h1,h2{
+    margin: 10px 0 10px;
+    background-color: #333;
+    color: #fff;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: #555 0px 7px 9px 0px;
+    cursor: pointer;
+}
+
 .portfolio {
     padding: 2rem;
     background: #f4f4f4;
@@ -159,9 +191,10 @@ nav ul li a:hover {
 footer {
     background: #222;
     color: #fff;
-    text-align: center;
+    text-align: justify;
     padding: 1rem 0;
-    margin-top: 2rem;
+    margin: 2rem 0 1rem 0;
+    display: flex;
 }
 
 footer p {
