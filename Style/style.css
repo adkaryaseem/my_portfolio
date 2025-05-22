@@ -11,7 +11,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #faf8f8;
 }
 
 /* Header Section */
@@ -23,14 +23,14 @@ header {
     position: sticky;
 }
 
-header h1 {
+/* header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
 header p {
     font-size: 1.2rem;
-}
+} */
 
 /* Navigation */
 nav {
@@ -54,14 +54,15 @@ nav {
 
 .nav{
     display: flex;
-    margin-left: 150px;
+    margin-left: 225px;
 }
 
 .nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
+    text-align: center;
+    place-items: center;
 }
 
 .nav ul li {
@@ -148,19 +149,26 @@ h1,h2{
 }
 
 /* Contact Section */
-.contact {
+/* #contact h2{
     padding: 2rem;
     background: #333;
     color: #fff;
     text-align: center;
-}
-
-.contact h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+} */
+
+#contact p span{
+    border-style: solid;
+    border-width: 0px 10px 0px 0px;
+    margin-right: 10px;
 }
 
-.contact form {
+.footer .fa-solid, .fa-brands{
+    color: red;
+}
+
+/* .contact form {
     max-width: 600px;
     margin: 0 auto;
 }
@@ -172,9 +180,9 @@ h1,h2{
     margin: 0.5rem 0;
     border: none;
     border-radius: 5px;
-}
+} */
 
-.contact form button {
+/* .contact form button {
     padding: 0.8rem 2rem;
     background: #444;
     color: #fff;
@@ -185,18 +193,87 @@ h1,h2{
 
 .contact form button:hover {
     background: #555;
-}
+} */
 
 /* Footer */
 footer {
     background: #222;
     color: #fff;
-    text-align: justify;
+    text-align: center;
     padding: 1rem 0;
     margin: 2rem 0 1rem 0;
-    display: flex;
 }
 
 footer p {
     font-size: 0.9rem;
+}
+
+
+@media screen {
+    @media (max-width: 768px) {
+        body {
+            width: 90vw;
+        }
+
+        .nav{
+            flex-direction: column;
+            margin-left: 0;
+        }
+
+        .nav ul {
+            flex-direction: column;
+            text-align: justify;
+        }
+
+        .nav ul li {
+            margin: 0.5rem 0;
+        }
+
+        .portfolio .projects {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    }
+    @media (max-width: 480px) {
+        header h1 {
+            font-size: 2rem;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        .about h2,
+        .portfolio h2,
+        .contact h2 {
+            font-size: 1.5rem;
+        }
+
+        .portfolio .project h3 {
+            font-size: 1.2rem;
+        }
+    }
+    @media (max-width: 320px) {
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        header p {
+            font-size: 0.9rem;
+        }
+
+        .about h2,
+        .portfolio h2,
+        .contact h2 {
+            font-size: 1.2rem;
+        }
+
+        .portfolio .project h3 {
+            font-size: 1rem;
+        }
+    }
+    @media (max-width: 768px) {
+        .portfolio .projects {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
 }
