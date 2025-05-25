@@ -168,6 +168,10 @@ h1,h2{
     color: red;
 }
 
+.footer .fa-solid:hover, .fa-brands:hover {
+    color: rgb(3, 5, 85);
+}
+
 /* .contact form {
     max-width: 600px;
     margin: 0 auto;
