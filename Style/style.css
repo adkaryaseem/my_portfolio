@@ -166,15 +166,43 @@
         .social-links a:hover {
             transform: scale(1.15);
         }
-        .social-links img {
+        .social-links i {
             width: 32px;
             height: 32px;
-            filter: grayscale(1) brightness(0.7);
+            /* filter: grayscale(1) brightness(0.7); */
             transition: filter 0.2s;
         }
-        .social-links a:hover img {
+        .social-links a:hover i {
             filter: none;
         }
+
+        .fa-solid, .fa-brands{
+            font-size: 32px;
+            color: black;
+        }
+
+        .fa-github:hover{
+            color: white;
+            background-color: black;
+            border-radius: 100%;
+        }
+
+        .fa-phone:hover{
+            color: red;
+        }
+
+        .fa-linkedin:hover{
+            color: rgb(65, 65, 245);
+        }
+
+        .fa-twitter:hover{
+            color: skyblue;
+        }
+
+        .fa-envelope:hover{
+            color: rgb(4, 4, 132);
+        }
+
         footer {
             text-align: center;
             padding: 1.5rem 0;
