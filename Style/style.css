@@ -1,287 +1,221 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0 auto;
-    width: 70vw;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #faf8f8;
-}
-
-/* Header Section */
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-    position: sticky;
-}
-
-/* header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-} */
-
-/* Navigation */
-nav {
-    background: #444;
-    padding: 0.5rem 0;
-    /* position: fixed; */
-}
-
-.logo{
-    display: flex;
-    justify-content: left;
-    align-items: left;
-}
-
-.logo img{
-    height: 50px;
-    width: 50px;
-    float: left;
-    margin-left: 20px;
-}
-
-.nav{
-    display: flex;
-    margin-left: 225px;
-}
-
-.nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    place-items: center;
-}
-
-.nav ul li {
-    margin: 0 1rem;
-}
-
-
-.nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.nav ul li a:hover {
-    color: #1ed88e;
-    text-decoration: underline;
-}
-
-/* About Section */
-.about {
-    padding: 2rem;
-    background: #fff;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Portfolio Section */
-h1,h2{
-    margin: 10px 0 10px;
-    background-color: #333;
-    color: #fff;
-    width: fit-content;
-    border-radius: 5px;
-    box-shadow: #555 0px 7px 9px 0px;
-    cursor: pointer;
-}
-
-.portfolio {
-    padding: 2rem;
-    background: #f4f4f4;
-}
-
-.portfolio h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.portfolio .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.portfolio .project {
-    background: #fff;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.portfolio .project img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-.portfolio .project h3 {
-    margin: 1rem 0 0.5rem;
-}
-
-.portfolio .project p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Contact Section */
-/* #contact h2{
-    padding: 2rem;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-} */
-
-#contact p span{
-    border-style: none;
-    border-width: 0px 10px 0px 0px;
-    margin-right: 10px;
-}
-
-.footer .fa-solid, .fa-brands{
-    color: red;
-}
-
-.footer .fa-solid:hover, .fa-brands:hover {
-    color: rgb(3, 5, 85);
-}
-
-/* .contact form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact form input,
-.contact form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    border: none;
-    border-radius: 5px;
-} */
-
-/* .contact form button {
-    padding: 0.8rem 2rem;
-    background: #444;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.contact form button:hover {
-    background: #555;
-} */
-
-/* Footer */
-footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin: 2rem 0 1rem 0;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
-
-
-@media screen {
-    @media (max-width: 768px) {
+        :root {
+            --primary: #2d3142;
+            --accent: #ef8354;
+            --bg: #f6f7fb;
+            --text: #22223b;
+            --white: #fff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            width: 90vw;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
-
-        .logo{
-            flex-direction: column;
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem 0 1.5rem 0;
+            text-align: center;
         }
-        
-        .nav{
-            flex-direction: column;
-            margin-left: 0;
-        }
-
-        .nav ul {
-            flex-direction: column;
-            text-align: justify;
-        }
-
-        .nav ul li {
-            margin: 0.5rem 0;
-        }
-
-        .portfolio .projects {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-    }
-    @media (max-width: 480px) {
         header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #cfd2da;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 1rem;
+            width: fit-content;
             font-size: 2rem;
+             border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            padding-left: 0.5rem;
+            box-shadow: #555 0px 7px 9px 0px;
+            cursor: pointer;
         }
-
-        header p {
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .about img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+        }
+        .about-text {
+            flex: 1;
+            min-width: 220px;
+        }
+        .skills-list, .projects-list, .education-list, .experience-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .skills-list li {
+            display: inline-block;
+            background: var(--bg);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin: 0.3rem 0.5rem 0.3rem 0;
             font-size: 1rem;
+            border: 1px solid var(--accent);
         }
-
-        .about h2,
-        .portfolio h2,
-        .contact h2 {
-            font-size: 1.5rem;
+        .projects-list li, .education-list li, .experience-list li {
+            margin-bottom: 1.2rem;
+            background: #f9fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
         }
-
-        .portfolio .project h3 {
-            font-size: 1.2rem;
+        .projects-list a {
+            color: var(--primary);
+            text-decoration: underline;
+            font-weight: 600;
         }
-    }
-    @media (max-width: 320px) {
-        header h1 {
-            font-size: 1.5rem;
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f9fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(44, 62, 80, 0.06);
         }
-
-        header p {
-            font-size: 0.9rem;
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
-
-        .about h2,
-        .portfolio h2,
-        .contact h2 {
-            font-size: 1.2rem;
-        }
-
-        .portfolio .project h3 {
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
             font-size: 1rem;
+            background: var(--white);
+            resize: vertical;
         }
-    }
-    @media (max-width: 768px) {
-        .portfolio .projects {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .contact-form button {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
         }
-    }
-}
+        .contact-form button:hover {
+            background: #d76a2d;
+        }
+        .form-message {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+         .social-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 0.7rem;
+            transition: transform 0.2s;
+            vertical-align: middle;
+        }
+        .social-links a:hover {
+            transform: scale(1.15);
+        }
+        .social-links img {
+            width: 32px;
+            height: 32px;
+            filter: grayscale(1) brightness(0.7);
+            transition: filter 0.2s;
+        }
+        .social-links a:hover img {
+            filter: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: var(--primary);
+            color: var(--white);
+            margin-top: 2rem;
+            border-radius: 0 0 12px 12px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .about {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .about img {
+                margin-bottom: 1rem;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            nav a {
+                margin: 0.3rem 0;
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 0.5rem;
+            }
+            .contact-form {
+                padding: 1rem;
+            }
+        }
