@@ -1,4 +1,37 @@
-        // Set current year in footer
+    // Make header sticky when it reaches the top
+    window.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('header');
+        header.style.position = 'sticky';
+        header.style.top = '0';
+        header.style.zIndex = '1100';
+    });
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    function handleMenuDisplay() {
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = 'block';
+            mainNav.classList.remove('show');
+        } else {
+            menuToggle.style.display = 'none';
+            mainNav.style.display = '';
+            mainNav.classList.remove('show');
+            mainNav.style.transform = '';
+        }
+    }
+    menuToggle.addEventListener('click', function() {
+        mainNav.classList.toggle('show');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('show');
+            }
+        });
+    });
+    window.addEventListener('resize', handleMenuDisplay);
+    window.addEventListener('DOMContentLoaded', handleMenuDisplay);
+    
+            // Set current year in footer
         document.getElementById('copyrightYear').textContent = new Date().getFullYear();
     
 

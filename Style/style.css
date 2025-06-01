@@ -85,6 +85,7 @@
         .about-text {
             flex: 1;
             min-width: 220px;
+            text-align: justify;
         }
         .skills-list, .projects-list, .education-list, .experience-list {
             list-style: none;
@@ -166,43 +167,15 @@
         .social-links a:hover {
             transform: scale(1.15);
         }
-        .social-links i {
+        .social-links img {
             width: 32px;
             height: 32px;
-            /* filter: grayscale(1) brightness(0.7); */
+            filter: grayscale(1) brightness(0.7);
             transition: filter 0.2s;
         }
-        .social-links a:hover i {
+        .social-links a:hover img {
             filter: none;
         }
-
-        .fa-solid, .fa-brands{
-            font-size: 32px;
-            color: black;
-        }
-
-        .fa-github:hover{
-            color: white;
-            background-color: black;
-            border-radius: 100%;
-        }
-
-        .fa-phone:hover{
-            color: red;
-        }
-
-        .fa-linkedin:hover{
-            color: rgb(65, 65, 245);
-        }
-
-        .fa-twitter:hover{
-            color: skyblue;
-        }
-
-        .fa-envelope:hover{
-            color: rgb(4, 4, 132);
-        }
-
         footer {
             text-align: center;
             padding: 1.5rem 0;
@@ -247,3 +220,62 @@
                 padding: 1rem;
             }
         }
+        /* Responsive Navigation Menu */
+    header {
+        position: relative;
+    }
+    #menuToggle {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        font-size: 1.3rem; /* smaller size */
+        padding: 0.2rem 0.7rem;
+        border-radius: 6px;
+        cursor: pointer;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1002;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+        display: none;
+    }
+    #menuToggle:active, #menuToggle:focus {
+        background: #d76a2d;
+        outline: none;
+    }
+    @media (max-width: 768px) {
+        #menuToggle {
+            display: block;
+        }
+        nav#mainNav {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--primary);
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 220px;
+            box-shadow: -4px 0 16px rgba(44,62,80,0.12);
+            border-radius: 0 0 0 12px;
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+        }
+        nav#mainNav.show {
+            display: flex;
+            transform: translateX(0);
+        }
+        nav#mainNav a {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            width: 100%;
+            color: var(--accent);
+            text-align: left;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(239,131,84,0.1);
+        }
+    }
