@@ -62,9 +62,10 @@
             margin-bottom: 1rem;
             width: fit-content;
             font-size: 2rem;
-             border-radius: 5px;
+            border-radius: 5px;
             border-left: 4px solid var(--accent);
             padding-left: 0.5rem;
+            padding-right: 0.5rem;
             box-shadow: #555 0px 7px 9px 0px;
             cursor: pointer;
         }
