@@ -1,0 +1,324 @@
+:root {
+    --color-cinematic-bg: #050505;
+    --color-cinematic-surface: #0d0d0d;
+    --color-cinematic-border: rgba(99, 102, 241, 0.1);
+    --color-cinematic-text: #f0f0f0;
+    --color-cinematic-muted: #a0a0a0;
+    --color-cinematic-accent: #6366f1;
+    --color-cinematic-secondary: #ec4899;
+}
+
+body {
+    background-color: var(--color-cinematic-bg);
+    color: var(--color-cinematic-text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+::selection {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-cinematic-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-cinematic-accent);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-cinematic-secondary);
+}
+
+/* Noise Overlay */
+.bg-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Cursor */
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Loading Screen */
+#cinematic-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--color-cinematic-bg);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.5em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: opacity 1.5s ease-out;
+}
+
+/* Navigation Overlay */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 3, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.nav-overlay.open {
+    clip-path: circle(150% at 100% 0%);
+}
+
+.nav-link {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-decoration: none;
+    margin: 1rem 0;
+    position: relative;
+    opacity: 0.5;
+    transition: opacity 0.4s, transform 0.4s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    transform: translateX(10px);
+}
+
+/* Magnetic Button / Hamburger */
+.hamburger-btn {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+    transition: background 0.3s;
+}
+
+.hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-lines {
+    width: 20px;
+    height: 2px;
+    background: white;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.hamburger-lines::before, .hamburger-lines::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s;
+}
+
+.hamburger-lines::before { top: -6px; }
+.hamburger-lines::after { bottom: -6px; }
+
+.hamburger-btn.open .hamburger-lines { background: transparent; }
+.hamburger-btn.open .hamburger-lines::before { top: 0; transform: rotate(45deg); }
+.hamburger-btn.open .hamburger-lines::after { bottom: 0; transform: rotate(-45deg); }
+
+@media (min-width: 1024px) {
+    .hamburger-btn, .nav-overlay {
+        display: none !important;
+    }
+}
+
+/* Ambient Glow */
+.ambient-glow {
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+    border-radius: 50%;
+    top: -20vw;
+    left: 20vw;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(80px);
+}
+
+.bg-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-cinematic-bg);
+    z-index: -2;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.bg-mesh::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.2) 2px, transparent 2px);
+    background-size: 60px 60px;
+    transform: rotateX(60deg) translateY(0) translateZ(-100px);
+    opacity: 0.3;
+}
+
+/* Image Reveal Mask */
+.project-image-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image {
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1s;
+    filter: brightness(1);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.gsap-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.glass-panel {
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-cinematic-border);
+}
+
+/* 3D Environment Wrapper */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+/* Cinematic 3D Cube */
+.cinematic-cube-container {
+    perspective: 1500px;
+}
+
+.cinematic-cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg); /* Initial rotation */
+}
+
+.cube-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.cube-face img {
+    opacity: 0.8;
+    filter: brightness(0.7) contrast(1.2);
+    transition: all 0.5s;
+}
+
+.cinematic-cube:hover .cube-face img {
+    opacity: 1;
+    filter: brightness(1) contrast(1.1);
+}
+
+/* Dynamic sizes for 150px base, media queries will handle larger screens but this assumes the 100% wrapper */
+.front  { transform: translateZ(calc(100% / 2)); }
+.back   { transform: rotateY(180deg) translateZ(calc(100% / 2)); }
+.right  { transform: rotateY(90deg) translateZ(calc(100% / 2)); }
+.left   { transform: rotateY(-90deg) translateZ(calc(100% / 2)); }
+.top    { transform: rotateX(90deg) translateZ(calc(100% / 2)); }
+.bottom { transform: rotateX(-90deg) translateZ(calc(100% / 2)); }
+
+@media (min-width: 768px) {
+    .front  { transform: translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .right  { transform: rotateY(90deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .top    { transform: rotateX(90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+}
+
+@media (max-width: 767px) {
+    .front  { transform: translateZ(75px); }
+    .back   { transform: rotateY(180deg) translateZ(75px); }
+    .right  { transform: rotateY(90deg) translateZ(75px); }
+    .left   { transform: rotateY(-90deg) translateZ(75px); }
+    .top    { transform: rotateX(90deg) translateZ(75px); }
+    .bottom { transform: rotateX(-90deg) translateZ(75px); }
+}
